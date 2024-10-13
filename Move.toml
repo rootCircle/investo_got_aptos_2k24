@@ -1,0 +1,16 @@
+[package]
+name = "investo"
+version = "1.0.0"
+authors = []
+
+[addresses]
+investo_addr = "584848e93ffed3018350365dba554cac52392cfaf0a31aea33d595f850005d69"
+
+[dev-addresses]
+
+[dependencies.AptosFramework]
+git = "https://github.com/aptos-labs/aptos-core.git"
+rev = "mainnet"
+subdir = "aptos-move/framework/aptos-framework"
+
+[dev-dependencies]
