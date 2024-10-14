@@ -4,7 +4,7 @@ version = "1.0.0"
 authors = []
 
 [addresses]
-investo_addr = "584848e93ffed3018350365dba554cac52392cfaf0a31aea33d595f850005d69"
+investo_addr = "f794b00f96808a63fe845d60950fb60f1dfd69c083ab30a49864bc1841fb8593"
 
 [dev-addresses]
 
@@ -12,5 +12,10 @@ investo_addr = "584848e93ffed3018350365dba554cac52392cfaf0a31aea33d595f850005d69
 git = "https://github.com/aptos-labs/aptos-core.git"
 rev = "mainnet"
 subdir = "aptos-move/framework/aptos-framework"
+
+[dependencies.AptosTokenObjects]
+git = "https://github.com/aptos-labs/aptos-core.git"
+rev = "mainnet"
+subdir = "aptos-move/framework/aptos-token-objects"
 
 [dev-dependencies]
