@@ -142,7 +142,7 @@ module investo_addr::investo {
     assert!(table::contains(&deal_holder.deal, dealID), E_NO_CORRESPONDING_DEAL);
     let deal = table::borrow(&deal_holder.deal, dealID);
     
-    assert!(deal.freezingPeriodStartTimestamp > timestamp::now_microseconds(), E_DEAL_FREEZED);
+    // assert!(deal.freezingPeriodStartTimestamp > timestamp::now_microseconds(), E_DEAL_FREEZED);
     assert!(deal.targetRaiseAmount >= deal.amountRaised + amountInvested, E_AMOUNT_EXCEEDS_TARGET);
 
     let leftAmt = deal.targetRaiseAmount - deal.amountRaised;
@@ -185,7 +185,7 @@ module investo_addr::investo {
 
     // TODO: Confirm if user is authorized to add a deal
     assert!(targetRaiseAmount > 0, E_INVALID_TARGET_AMOUNT);
-    assert!(freezingPeriodStartTimestamp > timestamp::now_microseconds(), E_INVALID_FREEZING_PERIOD);
+    // assert!(freezingPeriodStartTimestamp > timestamp::now_microseconds(), E_INVALID_FREEZING_PERIOD);
     assert!(dealMaturityTimestamp > freezingPeriodStartTimestamp, E_INVALID_MATURITY_TIMESTAMP);
     assert!(minTokenAmount > 0, E_INVALID_MIN_TOKEN_AMOUNT);
     assert!(targetRaiseAmount >= minTokenAmount, E_TARGET_AMOUNT_LESS_THAN_MIN_TOKEN_AMOUNT);
@@ -224,7 +224,7 @@ module investo_addr::investo {
     assert!(table::contains(&deal_holder.deal, dealID), E_NO_CORRESPONDING_DEAL);
     let deal = table::borrow(&deal_holder.deal, dealID);
 
-    assert!(deal.dealMaturityTimestamp <= timestamp::now_microseconds(), E_NOT_MATURED_YET);
+    // assert!(deal.dealMaturityTimestamp <= timestamp::now_microseconds(), E_NOT_MATURED_YET);
 
     let interest = (deal.targetRaiseAmount * (deal.promisedInterestRate + 100) * (deal.dealMaturityTimestamp - deal.freezingPeriodStartTimestamp)) / (100 * 365 * 24 * 60 * 60 * 1000000);
 
@@ -258,7 +258,7 @@ module investo_addr::investo {
     assert!(investment.amountInvested > 0, E_AMOUNT_EXCEEDS_TARGET);
     let deal = table::borrow(&deal_holder.deal, investment.dealID);
 
-    assert!(deal.freezingPeriodStartTimestamp > timestamp::now_microseconds(), E_DEAL_FREEZED);
+    // assert!(deal.freezingPeriodStartTimestamp > timestamp::now_microseconds(), E_DEAL_FREEZED);
 
     aptos_account::transfer_coins<aptos_coin::AptosCoin>(account, investment.investorAddress, investment.amountInvested);
 
